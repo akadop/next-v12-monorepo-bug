@@ -1,0 +1,35 @@
+{
+  "name": "next-v12-monorepo-bug",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "project-one"
+  ],
+  "scripts": {
+    "dev": "cd project-one && yarn dev",
+    "format": "prettier --write --ignore-path .gitignore \"*/**/*.{js,jsx,ts,tsx}\"",
+    "type-check": "tsc --pretty --noEmit"
+  },
+  "husky": {
+    "hooks": {
+      "pre-push": "yarn test-all",
+      "pre-commit": "lint-staged"
+    }
+  },
+  "prettier": {
+    "semi": false,
+    "printWidth": 120,
+    "arrowParens": "avoid",
+    "quoteProps": "consistent",
+    "singleQuote": true,
+    "trailingComma": "none"
+  },
+  "devDependencies": {
+    "@types/node": "^16.11.6",
+    "@types/react-dom": "^17.0.10",
+    "@types/react": "^17.0.33",
+    "cross-env": "7.0.3",
+    "prettier": "2.4.1",
+    "typescript": "4.4.4"
+  }
+}
